@@ -1,0 +1,52 @@
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "Jost Regular";
+  font-display: swap;
+  src: url("../styles/fonts/Jost/Jost-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-weight: bold;
+  font-style: normal;
+  font-family: "Jost Medium";
+  font-display: swap;
+  src: url("../styles/fonts/Jost/Jost-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-weight: bold;
+  font-style: normal;
+  font-family: "Jost SemiBold";
+  font-display: swap;
+  src: url("../styles/fonts/Jost/Jost-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-weight: bold;
+  font-style: normal;
+  font-family: "Jost Bold";
+  font-display: swap;
+  src: url("../styles/fonts/Jost/Jost-Bold.ttf") format("truetype");
+}
+
+@mixin regular-font {
+  font-weight: 400;
+  font-size: 14px;
+  font-family: "Jost Regular", sans-serif;
+}
+
+@mixin medium-font {
+  font-weight: 500;
+  font-family: "Jost Medium", sans-serif;
+}
+
+@mixin semibold-font {
+  font-weight: 600;
+  font-family: "Jost SemiBold", sans-serif;
+}
+
+@mixin bold-font {
+  font-weight: 700;
+  font-family: "Jost Bold", sans-serif;
+}

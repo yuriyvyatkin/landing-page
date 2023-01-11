@@ -9,9 +9,15 @@ module.exports = merge(common, {
 
   devServer: {
     historyApiFallback: true,
-    contentBase: path.resolve(__dirname, './dist'),
+    static: {
+      directory: path.join(__dirname, "./dist")
+    },
     open: true,
     compress: true,
+    devMiddleware: {
+      writeToDisk: true,
+    },
+    hot: true,
     port: 8000,
   },
 

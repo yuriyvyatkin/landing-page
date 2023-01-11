@@ -1,0 +1,147 @@
+@import "burger-menu";
+
+.header {
+  padding-block: 15px;
+}
+
+.logo-img {
+  width: 198px;
+  height: 47px;
+
+  background-image: url("/src/images/logo.png");
+  background-repeat: no-repeat;
+  background-position-y: 50%;
+}
+
+.nav {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  min-height: 80px;
+
+  .nav-menu {
+    display: none;
+
+    margin-top: 33px;
+    margin-bottom: 10px;
+  }
+
+  .nav-item {
+    a {
+      display: block;
+
+      padding: 14px 16px;
+
+      font-size: 17px;
+      text-decoration: none;
+
+      color: $white;
+      background-color: $dark-grey;
+
+      &:active,
+      &:hover {
+        color: $black;
+        background-color: $orange;
+      }
+    }
+  }
+
+  .menu-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .nav-menu_showed {
+    display: block;
+  }
+}
+
+.nav-icons {
+  margin-top: 5px;
+
+  &__content {
+    display: flex;
+  }
+
+  &__content-item {
+    width: 24px;
+    height: 24px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+
+    &:not(:first-child) {
+      margin-left: 26px;
+    }
+
+    &:active,
+    &:hover {
+      filter: invert(56%) sepia(25%) saturate(7498%) hue-rotate(336deg) brightness(99%) contrast(96%);
+    }
+  }
+
+  &__search {
+    background-image: url("/src/images/svg/nav/search.svg");
+  }
+
+  &__profile-icon {
+    background-image: url("/src/images/svg/nav/profile.svg");
+  }
+
+  &__cart {
+    position: relative;
+
+    background-image: url("/src/images/svg/nav/cart.svg");
+  }
+
+  &__cart-items {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+
+    font-size: 11px;
+    line-height: 21px;
+    text-align: center;
+
+    color: $black;
+    background: $orange;
+
+    pointer-events: none;
+  }
+
+  &__cart:hover &__cart-items {
+    display: none;
+  }
+}
+
+.search-form {
+  display: none;
+  height: 38px;
+  margin-top: 15px;
+  padding-inline: 20px;
+  border: 1px solid $black;
+  border-radius: 50px;
+
+  &_opened {
+    display: block;
+  }
+}
+
+.search-form__input {
+  width: 100%;
+  height: 100%;
+  padding-inline: 5px;
+  border: none;
+  outline: none;
+
+  color: $black;
+}

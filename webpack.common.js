@@ -1,7 +1,10 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const isProductionMode = process.env.npm_lifecycle_script.includes('prod');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
+const StylelintPlugin = require('stylelint-webpack-plugin');
+const sass = require('sass');
+const templatesData = require('./src/templates/data.js');
 
 module.exports = {
   target: 'web',
@@ -9,13 +12,22 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: './',
   },
+  watchOptions: {
+    ignored: /node_modules/,
+  },
   module: {
     rules: [
       {
-        test: /\.handlebars$/,
+        test: /\.hbs$/,
         loader: 'handlebars-loader',
         options: {
-          helperDirs: [path.join(__dirname, './src/handlebars/helpers')],
+          partialDirs: [
+            path.join(__dirname, './src/templates/partials'),
+            path.join(__dirname, './src/templates/components'),
+          ],
+          helperDirs: [
+            path.join(__dirname, './src/templates/helpers')
+          ],
           precompileOptions: {
             knownHelpersOnly: false,
           },
@@ -23,24 +35,13 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        loader: 'babel-loader',
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-          },
-        ],
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
-          // Translates CSS into CommonJS
+          isProductionMode ? MiniCssExtractPlugin.loader : "style-loader",
           "css-loader",
           {
             loader: "postcss-loader",
@@ -54,33 +55,35 @@ module.exports = {
               },
             },
           },
-          // Compiles Sass to CSS
           {
             loader: "sass-loader",
             options: {
-              // Prefer `dart-sass`
-              implementation: require("sass"),
+              implementation: sass,
             },
           },
         ],
       },
       {
         test: /\.(png|jpe?g|svg)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-            },
-          },
-        ],
+        type: 'asset/resource',
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
       },
     ],
   },
   plugins: [
+    new StylelintPlugin({
+      context: './src/styles',
+      exclude: 'fonts',
+      fix: true,
+    }),
     new HtmlWebPackPlugin({
-      title: 'My awesome site',
-      template: './src/index.handlebars',
+      title: 'Good4Me',
+      favicon: './src/images/favicon.ico',
+      template: './src/templates/index.hbs',
+      templateParameters: templatesData,
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',

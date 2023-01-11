@@ -1,5 +1,6 @@
 dist
 doc
+drafts
 
 # Logs
 logs
@@ -87,3 +88,6 @@ typings/
 
 # VSCode
 .vscode/
+
+# CSS comb
+.csscomb.json
