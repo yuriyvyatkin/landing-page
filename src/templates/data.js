@@ -1,5 +1,9 @@
-const data = {
-  info: 'Your books are due next Tuesday',
+module.exports = {
+  navLinks: [
+    'SHOP',
+    "FAQ'S",
+    'STOCKISTS',
+    'WHOLESALE',
+    'CONTACT',
+  ],
 };
-
-module.exports = data;

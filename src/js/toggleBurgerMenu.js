@@ -1,4 +1,6 @@
 export default function toggleBurgerMenu(event, navMenu) {
+  event.preventDefault();
+
   let menuBtn = event.target;
 
   if (!menuBtn.classList.contains('menu-btn')) {

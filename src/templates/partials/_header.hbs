@@ -9,20 +9,20 @@
       {{/header/burger-menu}}
 
       <ul class="nav-menu">
-        <li class="nav-item"><a href="#0" class="nav-link">SHOP</a></li>
-        <li class="nav-item"><a href="#0" class="nav-link">FAQ'S</a></li>
-        <li class="nav-item"><a href="#0" class="nav-link">STOCKISTS</a></li>
-        <li class="nav-item"><a href="#0" class="nav-link">WHOLESALE</a></li>
-        <li class="nav-item"><a href="#0" class="nav-link">CONTACT</a></li>
+        {{#each navLinks}}
+          <li class="nav-menu__item">
+            <a href="#0" class="nav-menu__link">{{uppercase this}}</a>
+          </li>
+        {{/each}}
       </ul>
 
       <div class="nav-icons">
         <div class="nav-icons__content">
-          <div class="nav-icons__content-item nav-icons__search"></div>
+          <div class="nav-icons__search nav-icons__content-item"></div>
 
-          <div class="nav-icons__content-item nav-icons__profile-icon"></div>
+          <div class="nav-icons__profile nav-icons__content-item"></div>
 
-          <div class="nav-icons__content-item nav-icons__cart">
+          <div class="nav-icons__cart nav-icons__content-item">
             <div class="nav-icons__cart-items">1</div>
           </div>
         </div>
@@ -33,8 +33,4 @@
       </div>
     </div>
   </div>
-
-  {{!-- {{#> info-box}}
-    <p>Info-box from header</p>
-  {{/info-box}} --}}
 </header>
