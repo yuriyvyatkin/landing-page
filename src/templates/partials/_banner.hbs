@@ -1,0 +1,25 @@
+<div class="banner">
+  <div class="wrapper">
+    <span class="banner__company-label">
+      {{banner.label}}
+    </span>
+
+    <h2 class="banner__product-title">
+      {{#if (isString banner.title)}}
+        {{banner.title}}
+      {{else}}
+        {{#each banner.title as | row |}}
+            <div class="row">{{uppercase row}}</div>
+        {{/each}}
+      {{/if}}
+    </h2>
+
+    <p class="banner__product-description">
+      {{banner.description}}
+    </p>
+
+    <button class="banner__button">
+      {{uppercase banner.button}}
+    </button>
+  </div>
+</div>

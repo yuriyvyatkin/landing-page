@@ -1,0 +1,98 @@
+.benefits {
+  height: 400px;
+  margin-top: 99px;
+
+  $reduction-ratio: 1.9;
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 50%;
+
+    text-align: center;
+
+    color: $light-gray;
+  }
+
+  &__title {
+    margin-top: math.div(93px, $reduction-ratio);
+
+    font-size: math.div(40px, $reduction-ratio);
+    line-height: math.div(61px, $reduction-ratio);
+    text-align: center;
+
+    @include semibold-font;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-top: math.div(97px, $reduction-ratio);
+  }
+
+  &__card-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+
+    background-color: $peach;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    $parent: &;
+
+    &:not(:first-child) {
+      margin-top: math.div(97px, $reduction-ratio);
+    }
+
+    &:nth-child(1) {
+      #{$parent}-picture {
+        background-image: url("/src/images/svg/benefits/shield.svg");
+      }
+    }
+
+    &:nth-child(2) {
+      padding: 44px 25px 60px;
+      border-radius: 10px;
+
+      background-color: $peach;
+      box-shadow: $box-shadow;
+
+      #{$parent}-picture {
+        background-color: $orange;
+        background-image: url("/src/images/svg/benefits/ecology.svg");
+      }
+    }
+
+    &:nth-child(3) {
+      #{$parent}-picture {
+        background-image: url("/src/images/svg/benefits/lab.svg");
+      }
+    }
+  }
+
+  &__card-name {
+    margin-top: math.div(33px, $reduction-ratio);
+
+    @include semibold-font;
+  }
+
+  &__card-description {
+    margin-top: math.div(20px, $reduction-ratio);
+
+    color: $middle-grey;
+  }
+}

@@ -1,0 +1,23 @@
+<div class="benefits">
+  <div class="wrapper">
+    <div class="benefits__header">
+      {{#each benefits.items}}
+        <span class="benefits__item">{{uppercase this}}</span>
+      {{/each}}
+    </div>
+
+    <h2 class="benefits__title">
+      {{benefits.title}}
+    </h2>
+
+    <div class="benefits__cards">
+      {{#each benefits.cards as | card |}}
+        <div class="benefits__card">
+          <div class="benefits__card-picture"></div>
+          <h3 class="benefits__card-name">{{card.name}}</h3>
+          <p class="benefits__card-description">{{card.description}}</p>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

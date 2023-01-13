@@ -1,0 +1,50 @@
+.banner {
+  $reduction-ratio: 2.1;
+  margin-top: 26px;
+  padding-block: math.div(208px, $reduction-ratio);
+  border-bottom-right-radius: 200px;
+  border-bottom-left-radius: 200px;
+
+  text-align: left;
+
+  background-color: $peach;
+
+  filter: drop-shadow($banner-shadow);
+
+  & .wrapper > :not(:first-child) {
+    margin-top: 31px;
+  }
+
+  &__company-label {
+    color: $orange;
+
+    @include semibold-font;
+  }
+
+  &__product-title {
+    font-size: math.div(66px, $reduction-ratio);
+    line-height: math.div(92px, $reduction-ratio);
+
+    color: $black;
+
+    @include semibold-font;
+  }
+
+  &__product-description {
+    font-size: 20px;
+    line-height: 29px;
+  }
+
+  &__button {
+    padding: 14px 30px;
+    border: none;
+
+    font-size: 16px;
+    line-height: 20px;
+
+    color: $white;
+    background-color: $orange;
+
+    @include medium-font;
+  }
+}
