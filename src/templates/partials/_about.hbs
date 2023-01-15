@@ -1,0 +1,41 @@
+<div class="about">
+  <div class="wrapper">
+    <h2 class="about__title">
+      {{#if (isString about.title)}}
+        {{about.title}}
+      {{else}}
+        {{#each about.title as | row |}}
+          <div class="row">{{uppercase row}}</div>
+        {{/each}}
+      {{/if}}
+    </h2>
+
+    <div class="about__facts">
+      {{#each about.facts as | fact |}}
+        <div class="about__fact">
+          <h3 class="about__fact-title">
+            {{fact.title}}
+          </h3>
+          <p class="about__fact-description">
+            {{fact.description}}
+          </p>
+        </div>
+      {{/each}}
+    </div>
+
+    <div class="about__main">
+      <div class="about__main-preview" role="img" aria-label="Preview of a company product"></div>
+
+      <div class="about__main-info">
+        {{#each about.info as | paragraph |}}
+          <p class="about__main-item">
+            {{paragraph}}
+          </p>
+        {{/each}}
+        <div class="about__main-button button">
+          {{about.button}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

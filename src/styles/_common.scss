@@ -11,3 +11,13 @@ body {
   margin-inline: auto;
   padding-inline: 15px;
 }
+
+.button {
+  font-size: 16px;
+
+  @include medium-font;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -9,7 +9,7 @@
         {{banner.title}}
       {{else}}
         {{#each banner.title as | row |}}
-            <div class="row">{{uppercase row}}</div>
+          <div class="row">{{uppercase row}}</div>
         {{/each}}
       {{/if}}
     </h2>
@@ -18,7 +18,7 @@
       {{banner.description}}
     </p>
 
-    <button class="banner__button">
+    <button class="banner__button button">
       {{uppercase banner.button}}
     </button>
   </div>

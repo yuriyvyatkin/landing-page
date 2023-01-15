@@ -1,8 +1,7 @@
 .benefits {
-  height: 400px;
-  margin-top: 99px;
-
   $reduction-ratio: 1.9;
+
+  margin-top: 99px;
 
   &__header {
     display: flex;
@@ -46,20 +45,20 @@
   }
 
   &__card {
+    $self: &;
+
     display: flex;
     flex-direction: column;
     align-items: center;
 
     text-align: center;
 
-    $parent: &;
-
     &:not(:first-child) {
       margin-top: math.div(97px, $reduction-ratio);
     }
 
     &:nth-child(1) {
-      #{$parent}-picture {
+      #{$self}-picture {
         background-image: url("/src/images/svg/benefits/shield.svg");
       }
     }
@@ -71,14 +70,14 @@
       background-color: $peach;
       box-shadow: $box-shadow;
 
-      #{$parent}-picture {
+      #{$self}-picture {
         background-color: $orange;
         background-image: url("/src/images/svg/benefits/ecology.svg");
       }
     }
 
     &:nth-child(3) {
-      #{$parent}-picture {
+      #{$self}-picture {
         background-image: url("/src/images/svg/benefits/lab.svg");
       }
     }

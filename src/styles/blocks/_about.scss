@@ -1,0 +1,116 @@
+.about {
+  $reduction-ratio: 2.1;
+
+  position: relative;
+
+  margin-top: math.div(248px, $reduction-ratio);
+  padding-block: math.div(282px, $reduction-ratio);
+
+  &__title {
+    align-self: flex-start;
+
+    margin-bottom: 70px;
+
+    font-size: math.div(56px, $reduction-ratio);
+    line-height: math.div(82px, $reduction-ratio);
+
+    @include bold-font;
+  }
+
+  &__facts {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__fact {
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-top: math.div(73px, $reduction-ratio);
+    }
+
+    &-title {
+      font-size: 24px;
+      line-height: 31px;
+
+      @include semibold-font;
+    }
+
+    &-description {
+      margin-top: math.div(20px, $reduction-ratio);
+
+      font-size: 16px;
+      line-height: 25px;
+
+      @include medium-font;
+    }
+  }
+
+  &__main {
+    margin-top: 70px;
+
+    &-preview {
+      display: none;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-item {
+      margin-bottom: 30px;
+
+      font-size: 20px;
+      line-height: 30px;
+
+      color: $light-gray;
+
+      @include medium-font;
+    }
+
+    &-button {
+      align-self: center;
+
+      margin-top: math.div(82px, $reduction-ratio);
+      padding: 15px 37px;
+      border: 2px solid $orange;
+
+      line-height: 25px;
+
+      &:hover {
+        color: $white;
+        background-color: $orange;
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    background: url("/src/images/svg/flowers.svg") no-repeat top left;
+    background-position-y: 32px;
+
+    opacity: 0.3;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+
+    border-bottom-right-radius: 200px;
+
+    background-color: $peach;
+  }
+}
